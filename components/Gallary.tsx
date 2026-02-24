@@ -156,8 +156,6 @@
 //   );
 // }
 
-
-
 "use client";
 
 import { motion } from "framer-motion";
@@ -175,18 +173,39 @@ const video1 = "/assets/gallery/videos/eating.mp4";
 const video2 = "/assets/gallery/videos/before_marriage.mp4";
 const video3 = "/assets/gallery/videos/sajguj.mp4";
 const video4 = "/assets/gallery/videos/i_wanna_be_your.mp4";
+const video5 = "/assets/gallery/videos/cute.mp4";
 
 export default function Gallery() {
   const photos = [
-    { src: image1, alt: "Dua after our marriage", desc: "The moment we asked for a lifetime of blessings, hand in hand." },
-    { src: image2, alt: "During our signature", desc: "The day we signed our marriage papers, a milestone in our journey." },
-    { src: image3, alt: "My signature", desc: "My signature, a symbol of our commitment and love." },
-    { src: image4, alt: "Your signature", desc: "The day you officially became my forever. My favorite signature in the world." },
-    { src: image5, alt: "On the CNG", desc: "It's the simple moments—a rose, a ride, and you—that mean the most." },
+    {
+      src: image1,
+      alt: "Dua after our marriage",
+      desc: "The moment we asked for a lifetime of blessings, hand in hand.",
+    },
+    {
+      src: image2,
+      alt: "During our signature",
+      desc: "The day we signed our marriage papers, a milestone in our journey.",
+    },
+    {
+      src: image3,
+      alt: "My signature",
+      desc: "My signature, a symbol of our commitment and love.",
+    },
+    {
+      src: image4,
+      alt: "Your signature",
+      desc: "The day you officially became my forever. My favorite signature in the world.",
+    },
+    {
+      src: image5,
+      alt: "On the CNG",
+      desc: "It's the simple moments—a rose, a ride, and you—that mean the most.",
+    },
   ];
 
   // Simplified video array - no descriptions needed
-  const videos = [video1, video2, video3, video4];
+  const videos = [video1, video2, video3, video4, video5];
 
   return (
     <section className="py-24 bg-slate-950 px-4">
@@ -261,7 +280,7 @@ export default function Gallery() {
           >
             {/* THE FIX: Removed autoPlay and muted, added controls */}
             <video
-              src={typeof video === 'string' ? video : undefined} 
+              src={typeof video === "string" ? video : undefined}
               controls
               playsInline
               className="absolute inset-0 w-full h-full object-cover"
@@ -269,7 +288,6 @@ export default function Gallery() {
           </motion.div>
         ))}
       </div>
-
     </section>
   );
 }
