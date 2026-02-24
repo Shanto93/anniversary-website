@@ -3,26 +3,53 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 
-import image1 from "../public/assets/timeline/1744901865863.jpg";
-import image2 from "../public/assets/timeline/1744901996164.jpg";
-import image3 from "../public/assets/timeline/1744902061195.jpg";
+import image1 from "../public/assets/timeline/your_signature.jpeg";
+import image2 from "../public/assets/timeline/dua.jpeg";
+import image3 from "../public/assets/timeline/on_cng.jpeg";
+import image4 from "../public/assets/timeline/walking.jpeg";
+import image5 from "../public/assets/timeline/cycle.jpeg";
+import image6 from "../public/assets/timeline/sareePunjabi.jpeg";
+import image7 from "../public/assets/timeline/sea.jpeg";
+import image8 from "../public/assets/timeline/cute.jpeg";
+import image9 from "../public/assets/timeline/flower.jpeg";
 
 export default function Timeline() {
   const milestones = [
     {
-      date: "The Day We Met",
-      text: "The moment my life changed forever.",
+      date: "The day you officially became my forever. My favorite signature in the world.",
       img: image1,
     },
     {
-      date: "Feb 27, 2025",
-      text: "The day you became my wife.",
+      date: "The moment we asked for a lifetime of blessings, hand in hand.",
       img: image2,
     },
     {
-      date: "Our First Trip",
-      text: "Exploring the world, hand in hand.",
+      date: "It's the simple moments—a rose, a ride, and you—that mean the most.",
       img: image3,
+    },
+    {
+      date: "Wherever the road leads, I'm glad I'm walking it with you.",
+      img: image4,
+    },
+    {
+      date: "Life is a beautiful ride when you're right behind me.",
+      img: image5,
+    },
+    {
+      date: "Traditional colors, timeless love. You look breathtaking.",
+      img: image6,
+    },
+    {
+      date: "Peace feels exactly like the ocean breeze and your smile.",
+      img: image7,
+    },
+    {
+      date: "Just a little reminder of how much I adore you.",
+      img: image8,
+    },
+    {
+      date: "Every 'Good Morning' is perfect because it starts with us.",
+      img: image9,
     },
   ];
 
@@ -35,7 +62,7 @@ export default function Timeline() {
         transition={{ duration: 0.8, ease: "easeOut" }}
         className="text-4xl text-center font-light mb-20 text-rose-400 drop-shadow-md"
       >
-        Our First 365
+        Our Journey
       </motion.h2>
 
       <div className="max-w-xl mx-auto relative border-l-2 border-rose-500/20 ml-6 md:ml-auto md:mx-auto">
@@ -66,12 +93,12 @@ export default function Timeline() {
             ></motion.div>
 
             <div className="bg-slate-900/80 backdrop-blur-sm p-6 md:p-8 rounded-3xl border border-white/5 shadow-2xl hover:border-rose-500/40 transition-colors duration-500">
-              <span className="text-sm font-bold tracking-widest text-rose-500 uppercase drop-shadow-sm">
+              <span className="text-sm font-bold tracking-widest text-rose-500 uppercase drop-shadow-sm mb-4 block">
                 {item.date}
               </span>
-              <h3 className="text-xl md:text-2xl text-slate-200 mt-2 mb-6 font-light leading-relaxed">
+              {/* <h3 className="text-xl md:text-2xl text-slate-200 mt-2 mb-6 font-light leading-relaxed">
                 {item.text}
-              </h3>
+              </h3> */}
 
               {/* THE FIX: Changed to md:w-2/3 and added mx-auto for centering */}
               <div className="relative w-full md:w-2/3 mx-auto aspect-[4/3] bg-slate-800 rounded-2xl overflow-hidden shadow-inner transform transition-transform duration-700">

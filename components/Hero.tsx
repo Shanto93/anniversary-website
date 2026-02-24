@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-import image1 from "../public/assets/hero/1744901865863.jpg";
+import image1 from "../public/assets/hero/hero.png";
 
 interface HeartData {
   id: number;
