@@ -27,7 +27,7 @@ Shanto`;
 
   useEffect(() => {
     // Check if current date is past Feb 27, 2026
-    const unlockDate = new Date("2026-02-21T00:00:00").getTime();
+    const unlockDate = new Date("2026-02-27T00:00:00").getTime();
 
     const checkTime = () => {
       if (Date.now() >= unlockDate) setIsUnlocked(true);
@@ -48,7 +48,7 @@ Shanto`;
       }, 50); // Speed of typing
       return () => clearInterval(typing);
     }
-  }, [isUnlocked]);
+  }, [isUnlocked, fullLetter]);
 
   return (
     <section className="py-32 bg-slate-950 px-4 flex justify-center">
