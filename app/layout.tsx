@@ -13,21 +13,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://anniversary-website-livid.vercel.app/"),
+
   title: "Our First Anniversary",
   description:
-    "A heartfelt digital love letter and celebration of our first year together. A collection of memories, reasons why I love you, and a special surprise message just for you. Here's to many more years of love and happiness.",
+    "A heartfelt digital love letter for Sanjida. Celebrating 365 days of us.",
 
   openGraph: {
     title: "Our First Anniversary",
-    description: "A heartfelt celebration of our first year together, Sanjida.",
-    url: "https://anniversary-website-livid.vercel.app/",
+    description: "A celebration of our journey together, Sanjida. ❤️",
+    url: "/",
     siteName: "Our First Anniversary",
     images: [
       {
         url: "/assets/hero/hero.png",
         width: 1200,
         height: 630,
-        alt: "Our First Anniversary - Shanto & Sanjida",
+        alt: "Shanto & Sanjida Anniversary",
       },
     ],
     locale: "en_US",
@@ -35,8 +37,6 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Our First Anniversary",
-    description: "A digital celebration of our journey together.",
     images: ["/assets/hero/hero.png"],
   },
 };
