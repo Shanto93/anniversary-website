@@ -39,7 +39,7 @@ export default function Hero() {
           src={image1}
           alt="Our Wedding Day"
           fill
-          priority // Tells Next.js to load this image immediately (critical for hero sections)
+          priority 
           sizes="100vw"
           className="object-cover animate-ken-burns opacity-55"
         />
