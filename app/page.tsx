@@ -1,5 +1,6 @@
 import Gallary from "@/components/Gallary";
 import Hero from "@/components/Hero";
+import LoveQuiz from "@/components/LoveQuiz";
 import MusicPlayer from "@/components/MusicPlayer";
 import ReasonGrid from "@/components/ReasonGrid";
 import SurpriseLetter from "@/components/SurpriseLetter";
@@ -12,6 +13,7 @@ export default function AnniversaryApp() {
       <Hero />
       <Timeline />
       <ReasonGrid />
+      <LoveQuiz />
       <Gallary></Gallary>
       <SurpriseLetter />
     </main>
