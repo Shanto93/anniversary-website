@@ -9,7 +9,6 @@ export default function LoveQuiz() {
   const [showScore, setShowScore] = useState(false);
   const [selectedAnswer, setSelectedAnswer] = useState<number | null>(null);
 
-  // Customize these questions with your actual memories!
   const questions = [
     {
       question:
@@ -44,26 +43,24 @@ export default function LoveQuiz() {
       answer: 1,
     },
     {
-      question: "Who fell in love first?",
+      question: "Who loves the other person just a little bit more?",
       options: [
-        "Shanto",
-        "Sanjida",
-        "It happened at the exact same time",
-        "Still debating this!",
+        "Me (Shanto, obviously!)",
+        "You (Sanjida)",
+        "It's a perfect tie",
+        "We will be debating this forever",
       ],
-      answer: 1,
+      answer: 0,
     },
   ];
 
   const handleAnswerOptionClick = (index: number) => {
     setSelectedAnswer(index);
 
-    // Check if correct
     if (index === questions[currentQuestion].answer) {
       setScore(score + 1);
     }
 
-    // Wait a second before moving to the next question so she sees what she clicked
     setTimeout(() => {
       const nextQuestion = currentQuestion + 1;
       if (nextQuestion < questions.length) {
@@ -84,7 +81,6 @@ export default function LoveQuiz() {
 
   return (
     <section className="py-24 bg-slate-950 px-4 flex justify-center relative overflow-hidden">
-      {/* Subtle ambient glow */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-rose-900/10 rounded-full blur-[100px] pointer-events-none"></div>
 
       <div className="max-w-3xl w-full bg-slate-900/60 backdrop-blur-md p-8 md:p-12 rounded-[2rem] border border-white/5 shadow-2xl relative z-10 min-h-[450px] flex flex-col justify-center">
@@ -134,35 +130,42 @@ export default function LoveQuiz() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {questions[currentQuestion].options.map((option, index) => (
-                <button
-                  key={index}
-                  onClick={() => handleAnswerOptionClick(index)}
-                  disabled={selectedAnswer !== null} // Prevent clicking multiple times
-                  className={`
-                    text-left p-4 md:p-5 rounded-2xl border transition-all duration-300
-                    ${
-                      selectedAnswer === null
-                        ? "bg-slate-800/50 border-white/5 hover:border-rose-400/50 hover:bg-slate-800 text-slate-300"
-                        : selectedAnswer === index
-                          ? index === questions[currentQuestion].answer
-                            ? "bg-green-500/20 border-green-500/50 text-green-200" // Correct answer styling
-                            : "bg-rose-500/20 border-rose-500/50 text-rose-200" // Wrong answer styling
-                          : index === questions[currentQuestion].answer
-                            ? "bg-green-500/20 border-green-500/50 text-green-200" // Show correct answer if they guessed wrong
-                            : "bg-slate-800/50 border-white/5 opacity-50 text-slate-500" // Fade out other options
-                    }
-                  `}
-                >
-                  <div className="flex items-center gap-3">
-                    {/* Add a little heart icon if selected */}
-                    {selectedAnswer === index && (
-                      <Heart className="w-4 h-4 fill-current" />
-                    )}
-                    <span className="font-medium">{option}</span>
-                  </div>
-                </button>
-              ))}
+              {questions[currentQuestion].options.map((option, index) => {
+                // THE FIX: Logic to playfully force her to choose option 0 on the last question
+                const isLastQuestion = currentQuestion === questions.length - 1;
+                const isPlayfullyDisabled = isLastQuestion && index !== 0;
+
+                return (
+                  <button
+                    key={index}
+                    onClick={() => handleAnswerOptionClick(index)}
+                    disabled={selectedAnswer !== null || isPlayfullyDisabled}
+                    className={`
+                      text-left p-4 md:p-5 rounded-2xl border transition-all duration-300
+                      ${
+                        isPlayfullyDisabled
+                          ? "bg-slate-800/20 border-white/5 opacity-40 cursor-not-allowed text-slate-500" // Unclickable joke options
+                          : selectedAnswer === null
+                            ? "bg-slate-800/50 border-white/5 hover:border-rose-400/50 hover:bg-slate-800 text-slate-300 cursor-pointer"
+                            : selectedAnswer === index
+                              ? index === questions[currentQuestion].answer
+                                ? "bg-green-500/20 border-green-500/50 text-green-200"
+                                : "bg-rose-500/20 border-rose-500/50 text-rose-200"
+                              : index === questions[currentQuestion].answer
+                                ? "bg-green-500/20 border-green-500/50 text-green-200"
+                                : "bg-slate-800/50 border-white/5 opacity-50 text-slate-500"
+                      }
+                    `}
+                  >
+                    <div className="flex items-center gap-3">
+                      {selectedAnswer === index && (
+                        <Heart className="w-4 h-4 fill-current" />
+                      )}
+                      <span className="font-medium">{option}</span>
+                    </div>
+                  </button>
+                );
+              })}
             </div>
           </motion.div>
         )}
