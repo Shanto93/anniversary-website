@@ -16,6 +16,36 @@
 }
 
 @keyframes kenBurns {
-  0% { transform: scale(1); }
-  100% { transform: scale(1.1); }
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+/* ////////////Surprise letter/////////////// */
+
+@layer utilities {
+  .animate-float-up {
+    animation: floatUp var(--duration) linear infinite;
+    animation-delay: var(--delay);
+  }
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(100%) scale(0.5) rotate(0deg);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.3;
+  }
+  80% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-1000%) scale(1.2) rotate(45deg);
+    opacity: 0;
+  }
 }
